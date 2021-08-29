@@ -5,11 +5,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {rootReducer} from "./redux/reducers/rootReducer";
+import thunkMiddleware from 'redux-thunk';
 import {Provider, TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
 
-const store = createStore(rootReducer, compose(
-    applyMiddleware(
+declare global {
+    interface Window {
+        __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
+    }
+}
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(rootReducer, composeEnhancers(
+    applyMiddleware(
+        thunkMiddleware
     )
 ))
 

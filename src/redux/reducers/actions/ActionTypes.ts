@@ -1,2 +1,4 @@
 export const CHANGE_GLOBAL_LANGUAGE = "CHANGE_GLOBAL_LANGUAGE"
 export const CHANGE_THEME = "CHANGE_THEME"
+export const SET_USER_DATA = "auth/SET_USER_DATA"
+export const SET_USER_TOKENS = "auth/SET_USER_TOKENS"

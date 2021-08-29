@@ -6,20 +6,20 @@ import SideBar from "./react/components/menu/SideBar";
 import SiteContent from "./react/components/content/SiteContent";
 import SiteFooter from "./react/components/footer/SiteFooter";
 import LoginForm from "./react/components/login/LoginForm";
-
-const isAuth = true
-
+import {useAppSelector} from "./index";
 
 function App() {
-    if (!isAuth) {
-        return <LoginForm/>
-    }
+    const isAuth = useAppSelector(state => state.auth.isAuth)
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [collapsedSideBar, setCollapsedSideBar] = useState<boolean>(false)
 
     const onCollapse = () => {
         setCollapsedSideBar(!collapsedSideBar)
+    }
+
+    if (!isAuth) {
+        return <LoginForm />
     }
 
     return (

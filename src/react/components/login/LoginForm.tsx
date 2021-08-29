@@ -8,51 +8,47 @@ import {
 import * as Yup from 'yup';
 import cityImg from '../../../resources/images/city.jpg'
 import styles from './LoginForm.module.css'
+import {useAppDispatch} from "../../../index";
+import {login} from "../../../redux/reducers/authReducer";
 
 interface LoginFormValues {
-    login: string,
+    email: string,
     password: string
 }
 
 const LoginForm = () => {
     const initialValues: LoginFormValues = {
-        login: '',
+        email: '',
         password: ''
     }
 
+    const dispatch = useAppDispatch();
+
     return (
         <Formik
-            initialValues={{login: '', password: ''}}
+            initialValues={initialValues}
             validationSchema={Yup.object({
-                login: Yup.string()
-                    .email('Invalid email address')
-                    .required('Email required'),
-                password: Yup.string()
-                    .required('Password required')
+                email: Yup.string().email('Invalid email address').required('Email adress required'),
+                password: Yup.string().required('Password required')
             })}
-            onSubmit={(values, {setSubmitting}) => {
-                setTimeout(() => {
-                    alert(JSON.stringify(values, null, 2));
-                    setSubmitting(false);
-                }, 400);
+            onSubmit={(values, { setSubmitting }) => {
+                // setTimeout(() => {
+                //     alert(JSON.stringify(values, null, 2));
+                //     setSubmitting(false);
+                // }, 400);
+                dispatch(login(values.email, values.password))
             }}
         >
             <Form>
-                <img className={styles.backgroundImage} src={cityImg}/>
-                <div className={styles.container}>
-                    <div className={styles.loginContainer}>
-                        <label htmlFor='login'>Email</label>
-                        <Field name='login' type='text' placeholder='Enter your email address'/>
-                        <ErrorMessage name='login'/>
-                    </div>
-                    <div className={styles.passwordContainer}>
-                        <label htmlFor='password'>Password</label>
-                        <Field name='password' type='password' placeholder='Enter your password'/>
-                        <ErrorMessage name='password'/>
-                    </div>
+                <label htmlFor="email">Email</label>
+                <Field name="email" type="text" />
+                <ErrorMessage name="email" />
 
-                    <button type="submit">Submit</button>
-                </div>
+                <label htmlFor="password">Password</label>
+                <Field name="password" type="password" />
+                <ErrorMessage name="password" />
+
+                <button type="submit">Submit</button>
             </Form>
         </Formik>
     )
