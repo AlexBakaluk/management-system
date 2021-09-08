@@ -15,6 +15,8 @@ const Settings = ({theme, changeTheme}: any) => {
             <h1>{settingsWords.theme}</h1>
             <ThemeChanger changeTheme={changeTheme}/>
             <h1>{theme}</h1>
+
+
         </div>
     )
 }

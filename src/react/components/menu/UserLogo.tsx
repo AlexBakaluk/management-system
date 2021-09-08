@@ -3,29 +3,35 @@ import {UserOutlined} from "@ant-design/icons";
 import {Avatar, Badge} from 'antd';
 import {BellOutlined} from "@ant-design/icons";
 import styles from './UserLogo.module.css'
+import {useAppDispatch, useAppSelector} from "../../../index";
+import userLogo from '../../../resources/images/user-logo.svg'
+import {setLogout} from "../../../redux/reducers/actions/Actions";
 
-type Props = {
-    collapsed: boolean
-}
+const UserLogo = () => {
 
-const UserLogo = ({collapsed}: Props) => {
+    const {name, surname} = useAppSelector(state => state.userInfo.userDetails)
+
+    const dispatch = useAppDispatch()
+
+    const logout = () => {
+        localStorage.removeItem("token")
+        dispatch(setLogout())
+    }
+
     return (
-        <div className={styles.logo}>
-            {collapsed
-                ? <span className={styles.avatar}>
-                      <span className="avatar-item">
-                          <Badge count={11}>
-                              <Avatar size="small" shape="circle" icon={<UserOutlined/>}/>
-                          </Badge>
-                      </span>
-                  </span>
-                : <div className={styles.organisationContainer}>
-                    <h1 className={styles.organisationName}>ИП Хватова А. М.</h1>
-                    <span className={styles.notifications}>
-                         <BellOutlined height={"15px"}/>
-                    </span>
-                </div>}
+        <div className={styles.logoutBtn}>
+            <button onClick={logout} title='Выйти' name='Logout'>Выход</button>
         </div>
+
+        // <div className={styles.logo}>
+        //    <span className={styles.avatar}>
+        //               <span className="avatar-item">
+        //                   <Badge count={11}>
+        //                       <Avatar size="small" shape="circle" icon={<UserOutlined/>}/>
+        //                   </Badge>
+        //               </span>
+        //    </span>
+        // </div>
     )
 }
 

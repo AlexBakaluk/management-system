@@ -6,8 +6,10 @@ import {
     ErrorMessage,
 } from 'formik';
 import * as Yup from 'yup';
-import cityImg from '../../../resources/images/city.jpg'
 import styles from './LoginForm.module.css'
+import {NavLink} from "react-router-dom";
+import {useAppDispatch} from "../../../index";
+import {login} from "../../../redux/reducers/authReducer";
 
 interface LoginFormValues {
     login: string,
@@ -15,6 +17,9 @@ interface LoginFormValues {
 }
 
 const LoginForm = () => {
+
+    const dispatch = useAppDispatch();
+
     const initialValues: LoginFormValues = {
         login: '',
         password: ''
@@ -22,7 +27,7 @@ const LoginForm = () => {
 
     return (
         <Formik
-            initialValues={{login: '', password: ''}}
+            initialValues={initialValues}
             validationSchema={Yup.object({
                 login: Yup.string()
                     .email('Invalid email address')
@@ -31,14 +36,15 @@ const LoginForm = () => {
                     .required('Password required')
             })}
             onSubmit={(values, {setSubmitting}) => {
-                setTimeout(() => {
-                    alert(JSON.stringify(values, null, 2));
-                    setSubmitting(false);
-                }, 400);
+                // setTimeout(() => {
+                //     alert(JSON.stringify(values, null, 2));
+                //     setSubmitting(false);
+                // }, 400);
+                dispatch(login(values.login, values.password, true))
             }}
         >
             <Form>
-                <img className={styles.backgroundImage} src={cityImg}/>
+                {/*<img className={styles.backgroundImage} src={cityImg}/>*/}
                 <div className={styles.container}>
                     <div className={styles.loginContainer}>
                         <label htmlFor='login'>Email</label>
@@ -52,6 +58,10 @@ const LoginForm = () => {
                     </div>
 
                     <button type="submit">Submit</button>
+                    OR
+                    <NavLink to={"/register"}>
+                        <button type="button">Register</button>
+                    </NavLink>
                 </div>
             </Form>
         </Formik>

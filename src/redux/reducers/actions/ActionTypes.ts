@@ -1,2 +1,5 @@
 export const CHANGE_GLOBAL_LANGUAGE = "CHANGE_GLOBAL_LANGUAGE"
 export const CHANGE_THEME = "CHANGE_THEME"
+export const LOGIN = "LOGIN"
+export const LOGOUT = "LOGOUT"
+export const SET_USER_INFO = "SET_USER_INFO"

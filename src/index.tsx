@@ -5,11 +5,21 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {rootReducer} from "./redux/reducers/rootReducer";
+import thunkMiddleware from 'redux-thunk';
 import {Provider, TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
+import {CookiesProvider} from 'react-cookie';
 
-const store = createStore(rootReducer, compose(
+declare global {
+    interface Window {
+        __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose
+    }
+}
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+
+const store = createStore(rootReducer, composeEnhancers(
     applyMiddleware(
-
+        thunkMiddleware
     )
 ))
 
@@ -21,9 +31,11 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 
 ReactDOM.render(
     <Provider store={store}>
-        <App/>
+        <CookiesProvider>
+            <App/>
+        </CookiesProvider>
     </Provider>,
-document.getElementById('root')
+    document.getElementById('root')
 )
 ;
 

@@ -39,7 +39,6 @@ const SideBar = ({isCollapsed, onCollapse}: any) => {
             theme="dark" width="250px" collapsible collapsed={isCollapsed} onCollapse={onCollapse}>
 
             <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-                <UserLogo collapsed={isCollapsed}/>
                 <SubMenu key="1" icon={<ShoppingCartOutlined/>} title={sideBarWords.goods}>
                     <Menu.Item key="11">
                         <NavLink to={'/goods/goodsList'}>

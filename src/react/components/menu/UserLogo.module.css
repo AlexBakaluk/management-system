@@ -1,21 +1,5 @@
-.avatar {
-    display: flex;
-    justify-content: center;
-    padding: 20px 0;
-}
-
-.organisationContainer {
-    display: flex;
-    justify-content: space-around;
-}
-
-.notifications {
-    align-self: center;
-    color: white;
-}
-
-.organisationName {
-    padding: 28px 0;
-    color: white;
-    text-align: center;
+.logoutButton {
+    height: 30px;
+    width: 50px;
+    margin-right: 20px;
 }
