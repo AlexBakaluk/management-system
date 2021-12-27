@@ -1,0 +1,144 @@
+/*#components-form-demo-normal-login .login-form {*/
+/*    max-width: 300px;*/
+/*}*/
+
+/*#components-form-demo-normal-login .login-form-forgot {*/
+/*    float: right;*/
+/*}*/
+
+/*#components-form-demo-normal-login .ant-col-rtl .login-form-forgot {*/
+/*    float: left;*/
+/*}*/
+
+/*#components-form-demo-normal-login .login-form-button {*/
+/*    width: 100%;*/
+/*}*/
+
+body {
+    background: #f6f5f7;
+}
+
+.sign-form-container h2 {
+    text-align: center;
+    font-size: 3em;
+    font-family: 'Source Code Pro', sans-serif;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.sign-form-container .enter-text {
+    padding-top: 10%;
+    padding-bottom: 5%;
+}
+
+.sign-form-container .account-text {
+    padding-top: 5%;
+    color: white;
+}
+
+.sign-form-container p {
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    padding-left: 5%;
+}
+
+.sign-form-container {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    min-width: 17em;
+    height: 50%;
+    overflow: hidden;
+    --child-form-width: 50%;
+    top: 20%;
+    left: 25%;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25),
+    0 10px 10px rgba(0,0,0,0.22);
+    border-radius: 20px;
+    width: 50%;
+}
+
+.sign-in-container {
+    display: flex;
+    width: var(--child-form-width);
+    flex-direction: column;
+    background-color: white;
+}
+
+.sign-up-container {
+    display: flex;
+    flex-direction: column;
+    width: var(--child-form-width);
+    background-color: #FF416C;
+    background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+    background: linear-gradient(to right, rgba(255, 75, 43, 0.9), rgba(255, 65, 108, 0.9));
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.login-form {
+    max-width: 100%;
+    padding: 0 25px;
+}
+
+input {
+    height: 30px;
+}
+
+.password-input {
+
+}
+
+/*.login-form-forgot {*/
+/*    float: right;*/
+/*}*/
+
+/*.ant-col-rtl .login-form-forgot {*/
+/*    float: left;*/
+/*}*/
+
+.form-button {
+    width: 30%;
+    height: 50px;
+    border-radius: 100px;
+    position: relative;
+    left: 35%;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.login-form-button {
+    margin-top: 10%;
+    letter-spacing: 2.5px;
+}
+
+.registration-button {
+    background-color: transparent;
+    border: 1.5px solid white;
+    color: white;
+    margin-top: auto;
+    margin-bottom: 10%;
+}
+
+.form-button:hover {
+    left: 20%;
+    width: 60%;
+}
+
+.registration-button:hover {
+    color: white;
+    background-color: transparent;
+    border: 1.5px solid white;
+}
+
+.login-form-forgot {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    font-size: 20px;
+}

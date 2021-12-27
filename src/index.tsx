@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './fonts.css'
 import {compose, createStore, applyMiddleware} from 'redux'
 import './index.css';
 import App from './App';
@@ -7,7 +8,7 @@ import reportWebVitals from './reportWebVitals';
 import {rootReducer} from "./redux/reducers/rootReducer";
 import thunkMiddleware from 'redux-thunk';
 import {Provider, TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
-import {CookiesProvider} from 'react-cookie';
+import {BrowserRouter, Router} from "react-router-dom";
 
 declare global {
     interface Window {
@@ -31,9 +32,9 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 
 ReactDOM.render(
     <Provider store={store}>
-        <CookiesProvider>
+        <BrowserRouter>
             <App/>
-        </CookiesProvider>
+        </BrowserRouter>
     </Provider>,
     document.getElementById('root')
 )

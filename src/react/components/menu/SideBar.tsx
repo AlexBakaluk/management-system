@@ -45,9 +45,9 @@ const SideBar = ({isCollapsed, onCollapse}: any) => {
                             {sideBarWords.goodsAndServices}
                         </NavLink>
                     </Menu.Item>
-                    <Menu.Item key="12">
-                        <NavLink to={'/goods/remains'}>
-                            {sideBarWords.remains}
+                    <Menu.Item key="brands">
+                        <NavLink to={'/goods/brands'}>
+                            Бренды
                         </NavLink>
                     </Menu.Item>
                 </SubMenu>

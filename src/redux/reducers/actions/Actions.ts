@@ -1,4 +1,4 @@
-import {CHANGE_GLOBAL_LANGUAGE, CHANGE_THEME, LOGIN, LOGOUT, SET_USER_INFO} from "./ActionTypes";
+import {CHANGE_GLOBAL_LANGUAGE, CHANGE_THEME, LOAD_ALL_BRANDS, LOGIN, LOGOUT, SET_USER_INFO} from "./ActionTypes";
 
 type changeLangType = {
     type: typeof CHANGE_GLOBAL_LANGUAGE
@@ -81,4 +81,20 @@ export const setUserInfo = (payload: UserInfoPayload): setUserInfoType => ({
         },
         roles: payload.roles
     }
+})
+
+interface loadAllBrandsType {
+    type: typeof LOAD_ALL_BRANDS,
+    payload: Array<AllBrandsInfoPayload>
+}
+
+interface AllBrandsInfoPayload {
+    id: number,
+    name: string,
+    organisationName: string,
+}
+
+export const setAllBrands = (payload: Array<AllBrandsInfoPayload>): loadAllBrandsType => ({
+    type: LOAD_ALL_BRANDS,
+    payload: payload
 })

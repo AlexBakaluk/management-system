@@ -9,7 +9,7 @@ type AuthState = {
 }
 
 const initialState: AuthState = {
-    isAuth: false,
+    isAuth: true,
 }
 
 export let token = ''

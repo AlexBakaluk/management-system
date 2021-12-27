@@ -1,0 +1,24 @@
+body {
+    background: white;
+}
+
+.registration-form {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25),
+    0 10px 10px rgba(0,0,0,0.22);
+    border-radius: 20px;
+    background: #f6f5f7;
+    /*background-color: rgba(0,0,0,0.08);*/
+}
+
+.registration-form h1 {
+    text-align: center;
+}
+
+.registration-form .submit-button {
+    margin-bottom: 20px;
+    border-radius: 100px;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+}

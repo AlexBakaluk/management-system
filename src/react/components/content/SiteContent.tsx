@@ -4,6 +4,7 @@ import {Route} from "react-router-dom";
 import GoodsList from "./goods/GoodsList";
 import Settings from '../settings/Settings'
 import 'antd/dist/antd.css'
+import {BrandsList} from "./goods/BrandsList";
 
 const {Content} = Layout;
 
@@ -17,6 +18,7 @@ const SiteContent = () => {
                 <div className="site-layout-background" style={{padding: 24, minHeight: 360}}>
                     <Route exact path={'/goods/goodsList'} component={GoodsList}/>
                     <Route exact path={'/settings'} component={Settings}/>
+                    <Route exact path={'/goods/brands'} component={BrandsList}/>
                 </div>
             </Content>
     )

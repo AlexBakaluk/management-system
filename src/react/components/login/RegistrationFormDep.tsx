@@ -6,7 +6,7 @@ import {
     ErrorMessage,
 } from 'formik';
 import * as Yup from 'yup';
-import styles from './LoginForm.module.css'
+import styles from './../menu/UserLogo.module.css'
 import axios from 'axios'
 
 interface RegistrationFormValues {
@@ -20,7 +20,7 @@ interface RegistrationFormValues {
     organisationShortName: string,
 }
 
-const RegistrationForm = () => {
+const RegistrationFormDep = () => {
     const initialValues: RegistrationFormValues = {
         email: '',
         password: '',
@@ -117,4 +117,4 @@ const RegistrationForm = () => {
     )
 }
 
-export default RegistrationForm
+export default RegistrationFormDep
